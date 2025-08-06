@@ -31,6 +31,10 @@ def main():
           pygame.Surface.fill(screen, (0, 0, 0), rect=None)
           updatable.update(dt)
           for t in asteroids:
+              for s in shots:
+                  if t.collision(s):
+                     t.kill()
+                     s.kill()
               if t.collision(andy):
                  print("Game over!")
                  sys.exit()
