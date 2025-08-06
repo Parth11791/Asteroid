@@ -1,3 +1,4 @@
+import sys
 import pygame
 from asteroidfield import *
 from circleshape import *
@@ -25,6 +26,10 @@ def main():
                  return
           pygame.Surface.fill(screen, (0, 0, 0), rect=None)
           updatable.update(dt)
+          for t in asteroids:
+              if t.collision(andy):
+                 print("Game over!")
+                 sys.exit()
           for thing in drawable:
               thing.draw(screen)
           pygame.display.flip()
